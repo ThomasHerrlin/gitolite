@@ -41,6 +41,7 @@ $rc{GL_LIBDIR} = $ENV{GL_LIBDIR};
 $rc{GL_REPO_BASE}  = "$ENV{HOME}/repositories";
 $rc{GL_ADMIN_BASE} = "$ENV{HOME}/.gitolite";
 $rc{LOG_TEMPLATE}  = "$ENV{HOME}/.gitolite/logs/gitolite-%y-%m.log";
+$rc{GL_AUTHORIZEDKEYSFILE} = "$ENV{HOME}/.ssh/authorized_keys";
 
 # variables that should probably never be changed but someone will want to, I'll bet...
 # ----------------------------------------------------------------------

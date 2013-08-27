@@ -6,6 +6,9 @@ use warnings;
 # usage() function or run without arguments.
 
 use Getopt::Long;
+use lib $ENV{GL_LIBDIR};
+use Gitolite::Rc;
+
 my $admin = 0;
 my $quiet = 0;
 my $help  = 0;
@@ -41,7 +44,7 @@ if ( not @pubkeyfiles ) {
 }
 
 if ( -t STDIN ) {
-    @ARGV = ("$ENV{HOME}/.ssh/authorized_keys");
+    @ARGV = ($rc{GL_AUTHORIZEDKEYSFILE});
 }
 
 # ------------------------------------------------------------------------
@@ -177,7 +180,8 @@ Look for potential problems in ssh keys.
 
 sshkeys-lint expects:
   - the contents of an authorized_keys file via STDIN, otherwise it uses
-    \$HOME/.ssh/authorized_keys
+    \$HOME/.ssh/authorized_keys or from GL_AUTHORIZEDKEYSFILE in ~/.gitolite.rc
+    if overridden there.
   - one or more pubkey filenames as arguments, otherwise it uses all the keys
     found (recursively) in \$HOME/.gitolite/keydir
 

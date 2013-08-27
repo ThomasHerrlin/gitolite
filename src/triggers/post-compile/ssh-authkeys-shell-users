@@ -10,7 +10,7 @@ use Gitolite::Common;
 
 $|++;
 
-my $akfile = "$ENV{HOME}/.ssh/authorized_keys";
+my $akfile = $rc{GL_AUTHORIZEDKEYSFILE};
 my $sufile = $rc{SHELL_USERS_LIST} or exit 0;
 -r $sufile or _die "'$sufile' not readable";
 
